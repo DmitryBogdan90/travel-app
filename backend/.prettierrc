@@ -4,16 +4,5 @@
   "printWidth": 100,
   "singleQuote": true,
   "trailingComma": "all",
-  "bracketSpacing": true,
-  "jsxBracketSameLine": true,
-  "jsxSingleQuote": false,
-  "overrides": [
-    {
-      "files": ["**/*.scss"],
-      "options": {
-        "singleQuote": false,
-        "number-leading-zero": "never"
-      }
-    }
-  ]
+  "bracketSpacing": true
 }
