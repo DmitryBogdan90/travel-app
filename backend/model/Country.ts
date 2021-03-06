@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model } from 'mongoose';
 
 const schema = new Schema({
   name: {
@@ -34,6 +34,6 @@ const schema = new Schema({
     required: true,
     default: [],
   },
-})
+});
 
-export default model('Country', schema)
+export default model('Country', schema);

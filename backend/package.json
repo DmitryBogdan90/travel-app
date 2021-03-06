@@ -13,7 +13,6 @@
   "eslintConfig": {
     "extends": "@imaginary-cloud/react"
   },
-  "prettier": "@imaginary-cloud/prettier-config",
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -1,13 +1,13 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import cors from "cors";
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
 
-const app = express()
-const PORT = process.env.PORT || 5000
+const app = express();
+const PORT = process.env.PORT || 5000;
 
-app.use(cors())
-app.use(express.json())
-app.use('/countries', require('./routes/app.routes'))
+app.use(cors());
+app.use(express.json());
+app.use('/countries', require('./routes/app.routes'));
 
 const start = async () => {
   try {
@@ -19,12 +19,12 @@ const start = async () => {
         useCreateIndex: true,
         useUnifiedTopology: true,
       },
-    )
+    );
 
-    app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+    app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
-start()
+start();
