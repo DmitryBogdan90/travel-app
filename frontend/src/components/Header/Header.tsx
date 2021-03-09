@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { AppBar, IconButton, Toolbar } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { NavLink } from 'react-router-dom';
 
 import LangSelect from './LangSelect/LangSelect';
 import LogInOutBtn from './LogInOutBtn/LogInOutBtn';
 import Logo from './Logo/Logo';
+import { MenuItemsType } from './types/MenuItemsType';
 import MobileMenu from './MobileMenu/MobileMenu';
 import { mobileMenuId } from '../../constants';
 import Search from './Search/Search';
@@ -23,6 +25,25 @@ const Header = () => {
   const handleMobileMenu = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMenuAnchorEl(mobileMenuAnchorEl ? null : event.currentTarget);
   };
+
+  const menuItems: Array<MenuItemsType> = [
+    {
+      id: 1,
+      content: <NavLink to="/">Home</NavLink>,
+    },
+    {
+      id: 2,
+      content: isAuthorized ? (
+        <NavLink to="/">Log out</NavLink>
+      ) : (
+        <NavLink to="/auth">Log in</NavLink>
+      ),
+    },
+    {
+      id: 3,
+      content: <LangSelect lang={lang} handleLangChange={handleLangChange} />,
+    },
+  ];
 
   return (
     <div className={classes.root}>
@@ -49,12 +70,10 @@ const Header = () => {
         </Toolbar>
       </AppBar>
       <MobileMenu
+        menuItems={menuItems}
         isMenuOpen={!!mobileMenuAnchorEl}
         handleMobileMenu={handleMobileMenu}
-        isAuthorized={isAuthorized}
         mobileMenuAnchorEl={mobileMenuAnchorEl}
-        lang={lang}
-        handleLangChange={handleLangChange}
       />
     </div>
   );
