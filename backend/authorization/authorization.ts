@@ -10,6 +10,8 @@ const generateAccessToken = (id: String) => {
   return jwt.sign(payload, 'SECRET_KEY_RANDOM');
 };
 
+import User from '../model/User';
+
 export const registration = async (req: Request, res: Response) => {
   try {
     const errors = validationResult(req);
