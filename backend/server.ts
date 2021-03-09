@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use('/countries', require('./routes/app.routes'));
-app.use('/users', require('./routes/app.user.routes'));
+app.use('/users', require('./routes/user.routes'));
 
 const start = async () => {
   try {
