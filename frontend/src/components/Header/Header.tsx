@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
-
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import { IconButton } from '@material-ui/core';
+import { AppBar, IconButton, Toolbar } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import MobileMenu from './MobileMenu/MobileMenu';
-import { useStyles } from './useStyles';
-import Logo from './Logo/Logo';
-import Search from './Search/Search';
+
 import LangSelect from './LangSelect/LangSelect';
 import LogInOutBtn from './LogInOutBtn/LogInOutBtn';
+import Logo from './Logo/Logo';
+import MobileMenu from './MobileMenu/MobileMenu';
+import { mobileMenuId } from '../../constants';
+import Search from './Search/Search';
+import { useStyles } from './useStyles';
 
 const Header = () => {
   const classes = useStyles();
-  const mobileMenuId = 'header-mobile-menu';
-
   const [lang, setLang] = useState(window.navigator.language.slice(0, 2));
   const [isAuthorized] = useState(false);
   const [mobileMenuAnchorEl, setMobileMenuAnchorEl] = useState<null | HTMLElement>(null);

@@ -1,7 +1,7 @@
 import React from 'react';
-
-import { Typography } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
+
 import { useStyles } from '../useStyles';
 
 const Logo = () => {

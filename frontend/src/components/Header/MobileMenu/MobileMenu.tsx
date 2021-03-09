@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Menu, MenuItem } from '@material-ui/core';
 
-import MenuItem from '@material-ui/core/MenuItem';
-import { Menu } from '@material-ui/core';
-import { useStyles } from '../useStyles';
 import LangSelect from '../LangSelect/LangSelect';
 import LogInOutBtn from '../LogInOutBtn/LogInOutBtn';
+import { mobileMenuId } from '../../../constants';
+import { useStyles } from '../useStyles';
 
 type MobileMenuProps = {
   isMenuOpen: boolean;
@@ -25,7 +25,6 @@ const MobileMenu = ({
   handleLangChange,
 }: MobileMenuProps) => {
   const classes = useStyles();
-  const mobileMenuId = 'header-mobile-menu';
 
   return (
     <div>

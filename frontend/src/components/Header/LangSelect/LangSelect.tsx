@@ -1,7 +1,6 @@
 import React from 'react';
+import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 
-import MenuItem from '@material-ui/core/MenuItem';
-import { FormControl, InputLabel, Select } from '@material-ui/core';
 import { languages } from '../../../constants';
 import { useStyles } from '../useStyles';
 

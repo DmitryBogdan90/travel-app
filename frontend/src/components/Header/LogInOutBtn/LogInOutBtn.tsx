@@ -1,7 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-
 import { Button } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
 
 type LogInOutBtnProps = {
   isAuthorized: boolean;
