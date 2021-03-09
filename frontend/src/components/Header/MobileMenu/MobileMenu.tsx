@@ -9,7 +9,7 @@ import LogInOutBtn from '../LogInOutBtn/LogInOutBtn';
 
 type MobileMenuProps = {
   isMenuOpen: boolean;
-  handleMobileMenuClose: () => void;
+  handleMobileMenu: (event: React.MouseEvent<HTMLElement>) => void;
   mobileMenuAnchorEl: null | HTMLElement;
   isAuthorized: boolean;
   lang: string;
@@ -18,7 +18,7 @@ type MobileMenuProps = {
 
 const MobileMenu = ({
   isMenuOpen,
-  handleMobileMenuClose,
+  handleMobileMenu,
   mobileMenuAnchorEl,
   isAuthorized,
   lang,
@@ -36,14 +36,14 @@ const MobileMenu = ({
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
         open={isMenuOpen}
-        onClose={handleMobileMenuClose}>
-        <MenuItem className={classes.homeMobile} onClick={handleMobileMenuClose}>
+        onClose={handleMobileMenu}>
+        <MenuItem className={classes.homeMobile} onClick={handleMobileMenu}>
           <NavLink to="/">Home</NavLink>
         </MenuItem>
-        <MenuItem onClick={handleMobileMenuClose}>
+        <MenuItem onClick={handleMobileMenu}>
           <LogInOutBtn isAuthorized={isAuthorized} />
         </MenuItem>
-        <MenuItem onClick={handleMobileMenuClose}>
+        <MenuItem onClick={handleMobileMenu}>
           <LangSelect lang={lang} handleLangChange={handleLangChange} />
         </MenuItem>
       </Menu>

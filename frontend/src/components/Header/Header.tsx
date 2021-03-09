@@ -4,7 +4,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { IconButton } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { languages } from '../../constants';
 import MobileMenu from './MobileMenu/MobileMenu';
 import { useStyles } from './useStyles';
 import Logo from './Logo/Logo';
@@ -16,21 +15,16 @@ const Header = () => {
   const classes = useStyles();
   const mobileMenuId = 'header-mobile-menu';
 
-  const [lang, setLang] = useState(languages[0]);
+  const [lang, setLang] = useState(window.navigator.language.slice(0, 2));
   const [isAuthorized] = useState(false);
   const [mobileMenuAnchorEl, setMobileMenuAnchorEl] = useState<null | HTMLElement>(null);
-  const isMenuOpen = Boolean(mobileMenuAnchorEl);
 
   const handleLangChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setLang(event.target.value as string);
   };
 
-  const handleMobileMenuClose = () => {
-    setMobileMenuAnchorEl(null);
-  };
-
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setMobileMenuAnchorEl(event.currentTarget);
+  const handleMobileMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setMobileMenuAnchorEl(mobileMenuAnchorEl ? null : event.currentTarget);
   };
 
   return (
@@ -50,7 +44,7 @@ const Header = () => {
               aria-label="show more"
               aria-controls={mobileMenuId}
               aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
+              onClick={handleMobileMenu}
               color="inherit">
               <MoreIcon />
             </IconButton>
@@ -58,8 +52,8 @@ const Header = () => {
         </Toolbar>
       </AppBar>
       <MobileMenu
-        isMenuOpen={isMenuOpen}
-        handleMobileMenuClose={handleMobileMenuClose}
+        isMenuOpen={!!mobileMenuAnchorEl}
+        handleMobileMenu={handleMobileMenu}
         isAuthorized={isAuthorized}
         mobileMenuAnchorEl={mobileMenuAnchorEl}
         lang={lang}
