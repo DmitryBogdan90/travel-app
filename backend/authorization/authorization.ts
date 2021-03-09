@@ -3,7 +3,6 @@ import { Request, Response } from 'express';
 import User from '../model/User';
 import { validationResult } from 'express-validator';
 
-
 export const registration = async (req: Request, res: Response) => {
   try {
     const errors = validationResult(req);
