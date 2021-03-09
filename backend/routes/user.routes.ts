@@ -1,6 +1,8 @@
-import { Router } from 'express';
-import { registration } from '../authorization/authorization';
 import { check } from 'express-validator';
+import { Router } from 'express';
+
+import { registration } from '../authorization/authorization';
+
 const router = Router();
 
 router.post(

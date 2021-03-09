@@ -1,7 +1,8 @@
 import bcrypt from 'bcryptjs';
 import { Request, Response } from 'express';
-import User from '../model/User';
 import { validationResult } from 'express-validator';
+
+import User from '../model/User';
 
 export const registration = async (req: Request, res: Response) => {
   try {
