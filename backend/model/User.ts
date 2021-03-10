@@ -4,7 +4,7 @@ interface UserResponse extends Document {
   username: string;
   password: string;
   _id: string;
-};
+}
 
 const User = new Schema({
   username: {

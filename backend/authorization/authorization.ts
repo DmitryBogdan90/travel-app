@@ -26,9 +26,9 @@ export const registration = async (req: Request, res: Response) => {
     await user.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (e) {
-    console.log(e);
     res.status(400).json({ message: 'Registration error' });
   }
+  return null;
 };
 
 export const login = async (req: Request, res: Response) => {
@@ -36,15 +36,16 @@ export const login = async (req: Request, res: Response) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
     if (!user) {
-      res.status(400).json({ message: `User ${username} doesn\'t found ` });
+      res.status(400).json({ message: `User ${username} doesn't found ` });
     }
     const validPassword = bcrypt.compareSync(password, user.password);
     if (!validPassword) {
       res.status(400).json({ message: 'Invalid password' });
     }
-    const token = generateAccessToken(user._id);
+    const token = generateAccessToken(user.id);
     return res.json({ token });
   } catch (e) {
     res.status(400).json({ message: 'Login error' });
   }
+  return null;
 };
