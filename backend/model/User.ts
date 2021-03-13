@@ -16,6 +16,9 @@ const User = new Schema({
     type: String,
     required: true,
   },
+  avatar: {
+    type: String,
+  },
 });
 
 export default model<UserResponse>('User', User);

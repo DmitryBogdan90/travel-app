@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Avatar, Button, Container, TextField, Typography } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { useStyles } from '../useStyles';
@@ -12,20 +14,53 @@ type Inputs = {
 
 const AuthForm = ({ isSignUp }: any) => {
   const classes = useStyles();
+  const history = useHistory();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [avatar, setAvatar] = useState(
+    'https://www.iconspng.com/images/-abstract-user-icon-1/-abstract-user-icon-1.jpg',
+  );
+  const [loadingStatus, setLoadingStatus] = useState('Upload photo');
   const { register, handleSubmit, errors } = useForm<Inputs>({
     mode: 'onBlur',
   });
 
-  const onSubmit = () => {};
+  const onSubmit = async (data: object) => {
+    let res;
+    if (isSignUp) {
+      res = await axios.post('/users/registration', {
+        ...data,
+        avatar,
+      });
+      window.alert(res.data.message);
+    }
 
-  const handleUserNamelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    res = await axios.post('/users/login', data);
+    localStorage.setItem('token', res.data.token);
+    history.push('/countries');
+    return res.data;
+  };
+
+  const handleUserNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
+  };
+
+  const handleAvatarChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLoadingStatus('Uploading...');
+    // @ts-ignore
+    const files = Array.from(event.target.files);
+    const formData = new FormData();
+    files.forEach((file, i) => {
+      formData.append(String(i), file);
+    });
+
+    const res = await axios.post('/avatar/create', formData);
+    setLoadingStatus('Uploaded');
+    setAvatar(res.data.url);
   };
 
   return (
@@ -39,7 +74,7 @@ const AuthForm = ({ isSignUp }: any) => {
         <TextField
           inputRef={register({ required: true })}
           value={username}
-          onChange={handleUserNamelChange}
+          onChange={handleUserNameChange}
           variant="outlined"
           margin="normal"
           required
@@ -69,13 +104,19 @@ const AuthForm = ({ isSignUp }: any) => {
         />
         {isSignUp ? (
           <label htmlFor="upload-photo" className={classes.uploadLabel}>
-            <input style={{ display: 'none' }} id="upload-photo" name="upload-photo" type="file" />
+            <input
+              style={{ display: 'none' }}
+              id="upload-photo"
+              name="upload-photo"
+              type="file"
+              onChange={handleAvatarChange}
+            />
             <Button
               className={classes.uploadBtn}
               color="secondary"
               variant="contained"
               component="span">
-              Upload photo
+              {loadingStatus}
             </Button>
           </label>
         ) : (
