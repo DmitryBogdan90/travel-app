@@ -16,13 +16,13 @@ export const registration = async (req: Request, res: Response) => {
     if (!errors.isEmpty()) {
       return res.status(400).json({ message: 'Registration error', errors });
     }
-    const { username, password } = req.body;
+    const { username, password, avatar } = req.body;
     const person = await User.findOne({ username });
     if (person) {
       res.status(400).json({ message: 'User with this name is already registered' });
     }
     const hashPassword = bcrypt.hashSync(password, 2);
-    const user = new User({ username, password: hashPassword });
+    const user = new User({ username, password: hashPassword, avatar });
     await user.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (e) {

@@ -1,14 +1,17 @@
-import express from 'express';
-import mongoose from 'mongoose';
 import cors from 'cors';
+import express from 'express';
+import formData from 'express-form-data';
+import mongoose from 'mongoose';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+app.use(formData.parse());
 app.use('/countries', require('./routes/app.routes'));
 app.use('/users', require('./routes/user.routes'));
+app.use('/avatar', require('./routes/avatar.routes'));
 
 const start = async () => {
   try {
