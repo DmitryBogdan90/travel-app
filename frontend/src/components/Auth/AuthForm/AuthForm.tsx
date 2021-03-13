@@ -18,9 +18,7 @@ const AuthForm = ({ isSignUp }: any) => {
     mode: 'onBlur',
   });
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-  };
+  const onSubmit = () => {};
 
   const handleUserNamelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
