@@ -7,6 +7,7 @@ import Auth from './components/Auth/Auth';
 import Header from './components/Header/Header';
 import { Home } from './components/Home';
 import { setCountries } from './redux/countriesReducer';
+import Home from './components/Home/Home';
 
 const App: React.FC = (props: any) => {
   useEffect(() => {
