@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import Auth from './components/Auth/Auth';
 import Header from './components/Header/Header';
-import { Home } from './components/Home';
+import Home from './components/Home/Home';
 import { setCountries } from './redux/countriesReducer';
 
 const App: React.FC = (props: any) => {
@@ -21,7 +21,7 @@ const App: React.FC = (props: any) => {
       <div className="container">
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/auth" component={Auth} exact />
+          <Route path="/auth" component={Auth} />
         </Switch>
       </div>
     </BrowserRouter>
