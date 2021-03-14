@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Auth from './components/Auth/Auth';
 import Header from './components/Header/Header';
 import { Home } from './components/Home';
+import { setCountries } from './redux/countriesReducer';
 
-const App: React.FC = () => {
+const App: React.FC = (props: any) => {
+  useEffect(() => {
+    axios.get('/countries').then(({ data }) => {
+      props.setCountries(data);
+    });
+  }, []);
+
   return (
     <BrowserRouter>
       <Header />
@@ -19,4 +28,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default connect(null, { setCountries })(App);
