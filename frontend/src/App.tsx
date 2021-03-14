@@ -21,7 +21,7 @@ const App: React.FC = (props: any) => {
       <div className="container">
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/auth" component={Auth} exact />
+          <Route path="/auth" component={Auth} />
         </Switch>
       </div>
     </BrowserRouter>
