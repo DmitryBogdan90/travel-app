@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import { Country, Sight } from '../Home/Home.types';
 import { homeStyles } from '../Home/HomeStyles';
 import { setActiveCountryData, setCountryId } from '../../redux/countriesReducer';
+import Weather from '../Weather/Weather';
 
 const CountryPage = ({
   activeCountryData,
@@ -34,6 +35,7 @@ const CountryPage = ({
 
   return (
     <div className={classes.countryPage}>
+      <Weather capital={capital}/>
       <div className={classes.countryName}>{countryName}</div>
       <div className={classes.capitalName}>{capital}</div>
       <div className={classes.countryInfo}>{info}</div>

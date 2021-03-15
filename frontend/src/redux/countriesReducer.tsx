@@ -3,6 +3,7 @@ import { Country } from '../components/Home/Home.types';
 const SET_COUNTRIES = 'SET_COUNTRIES';
 const SET_COUNTRY_ID = 'SET_COUNTRY_ID';
 const SET_ACTIVE_COUNTRY_DATA = 'SET_ACTIVE_COUNTRY_DATA';
+const SET_ACTIVE_COUNTRY_WEATHER = 'SET_ACTIVE_COUNTRY_WEATHER';
 
 const initialState = {
   countries: [],
@@ -15,6 +16,7 @@ const initialState = {
     _id: '',
     sights: [],
   },
+  weather: null,
 };
 
 const countriesReducer = (state = initialState, action: any) => {
@@ -33,6 +35,11 @@ const countriesReducer = (state = initialState, action: any) => {
       return {
         ...state,
         activeCountryData: action.data,
+      };
+    case SET_ACTIVE_COUNTRY_WEATHER:
+      return {
+        ...state,
+        weather: action.data,
       };
 
     default:
@@ -57,6 +64,13 @@ export const setCountryId = (id: string) => {
 export const setActiveCountryData = (data: Country) => {
   return {
     type: SET_ACTIVE_COUNTRY_DATA,
+    data,
+  };
+};
+
+export const setActiveCountryWeather = (data: any) => {
+  return {
+    type: SET_ACTIVE_COUNTRY_WEATHER,
     data,
   };
 };
