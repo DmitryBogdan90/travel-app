@@ -1,9 +1,7 @@
 import { check } from 'express-validator';
 import { Router } from 'express';
 
-
 import { login, registration } from '../authorization/authorization';
-
 
 const router = Router();
 

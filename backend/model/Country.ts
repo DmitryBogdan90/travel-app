@@ -1,4 +1,11 @@
-import { Schema, model } from 'mongoose';
+import { Document, Schema, model } from 'mongoose';
+
+interface CountryResponse extends Document {
+  username: string;
+  capital: string;
+  info: string;
+  sights: any;
+}
 
 const schema = new Schema({
   name: {
@@ -36,4 +43,4 @@ const schema = new Schema({
   },
 });
 
-export default model('Country', schema);
+export default model<CountryResponse>('Country', schema);

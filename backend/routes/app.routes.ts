@@ -25,17 +25,17 @@ router.get('/:id', async (req: Request, res: Response) => {
 router.patch('/:id', authmiddleWaree, async (req: Request, res: Response) => {
   try {
     const { rate, user, id } = req.body;
-    let country = await Country.findById(req.params.id);
-    let currentSightRates = country["sights"].find((item) => item["_id"] == id).rates
-    const userControl = currentSightRates.filter(element => element.user == user);
+    const country = await Country.findById(req.params.id);
+    const currentSightRates = country.sights.find((item) => item.id === id).rates;
+    const userControl = currentSightRates.filter((element) => element.user === user);
     if (!userControl.length) {
-      country["sights"].find((item) => item["_id"] == id).rates.push({ rate, user });
+      currentSightRates.rates.push({ rate, user });
     } else {
-      country["sights"].find((item) => item["_id"] == id).rates.forEach(item => {
-        if (item.user && item.user === user) {
-          item.rate = rate;
-        }
-      })
+      currentSightRates.splice(
+        currentSightRates.indexOf(currentSightRates.find((item) => item.user === user)),
+        1,
+        { rate, user },
+      );
     }
     country.save();
     res.json(country);
@@ -43,7 +43,6 @@ router.patch('/:id', authmiddleWaree, async (req: Request, res: Response) => {
     res.status(500).send(error.message);
   }
 });
-
 
 router.post('/', async (req: Request, res: Response) => {
   try {
