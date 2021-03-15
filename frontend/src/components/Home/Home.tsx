@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,9 +11,16 @@ import Typography from '@material-ui/core/Typography';
 
 import { Country } from './Home.types';
 import { homeStyles } from './HomeStyles';
+import { setCountryId } from '../../redux/countriesReducer';
 
 const Home = ({ countries }: { countries: Country[] }): JSX.Element => {
   const classes = homeStyles();
+  const dispatch = useDispatch();
+
+  const handleChooseCountry = (id: string) => {
+    dispatch(setCountryId(id));
+  };
+
   return (
     <>
       <h1 className={classes.countryListTitle}>Travel app</h1>
@@ -22,7 +29,7 @@ const Home = ({ countries }: { countries: Country[] }): JSX.Element => {
           return (
             <Card className={classes.countryCard} key={_id}>
               <NavLink to={`/country/${_id}`}>
-                <CardActionArea>
+                <CardActionArea onClick={() => handleChooseCountry(_id)}>
                   <CardMedia
                     component="img"
                     alt="Contemplative Reptile"
@@ -52,7 +59,7 @@ const Home = ({ countries }: { countries: Country[] }): JSX.Element => {
                 </CardActionArea>
               </NavLink>
               <CardActions>
-                <NavLink to={`/country/${_id}`}>
+                <NavLink to={`/country/${_id}`} onClick={() => handleChooseCountry(_id)}>
                   <Button size="small" color="primary">
                     Go
                   </Button>

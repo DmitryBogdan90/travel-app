@@ -1,10 +1,10 @@
-interface Rate {
+export interface Rate {
   rate: number;
   user: string;
   _id: string;
 }
 
-interface Sight {
+export interface Sight {
   description: string;
   img: string;
   name: string;
