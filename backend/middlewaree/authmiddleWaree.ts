@@ -14,7 +14,6 @@ export const authmiddleWaree = (req: Request & { user }, res: Response, next: Fu
     req.user = decodateData;
     next();
   } catch (e) {
-    console.log(e);
     res.status(400).json({ message: 'Пользователь не авторизован', e });
   }
 };
