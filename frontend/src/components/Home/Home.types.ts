@@ -18,4 +18,5 @@ export interface Country {
   img: string;
   _id: string;
   sights: Sight[];
+  map: any;
 }

@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import { Country, Sight } from '../Home/Home.types';
 import { homeStyles } from '../Home/HomeStyles';
 import { setActiveCountryData, setCountryId } from '../../redux/countriesReducer';
+import { Map } from './Country map/Map';
 
 const CountryPage = ({
   activeCountryData,
@@ -21,7 +22,7 @@ const CountryPage = ({
   location: any;
 }): JSX.Element => {
   const { pathname } = location;
-  const { name: countryName, capital, info, sights } = activeCountryData;
+  const { name: countryName, capital, info, sights, map } = activeCountryData;
   const dispatch = useDispatch();
   const classes = homeStyles();
 
@@ -76,6 +77,7 @@ const CountryPage = ({
           </Card>
         ))}
       </div>
+      <Map map={map} />
     </div>
   );
 };
