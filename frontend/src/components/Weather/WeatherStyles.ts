@@ -5,11 +5,11 @@ export const weatherStyles = makeStyles((theme) =>
     weatherWrapper: {
       textAlign: 'center',
       padding: theme.spacing(1),
-      border: '1px solid black',  
+      border: '1px solid black',
     },
     temp: {
       fontSize: '18px',
       fontWeight: 600,
-    }
+    },
   }),
 );

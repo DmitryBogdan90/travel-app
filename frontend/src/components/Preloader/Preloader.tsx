@@ -19,7 +19,7 @@ const Preloader = () => {
 
   return (
     <div className={classes.preloaderContainer}>
-      <CircularProgress size={80}/>
+      <CircularProgress size={80} />
     </div>
   );
 };
