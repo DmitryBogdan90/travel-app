@@ -21,8 +21,8 @@ const schema = new Schema({
     type: Object,
     default: {
       lat: 51,
-      lng: -0.91
-    }
+      lng: -0.91,
+    },
   },
   sights: {
     type: [

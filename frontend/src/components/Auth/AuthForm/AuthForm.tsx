@@ -32,7 +32,6 @@ const AuthForm = ({ isSignUp }: any) => {
         ...data,
         avatar,
       });
-      window.alert(res.data.message);
     }
 
     res = await axios.post('/users/login', data);
