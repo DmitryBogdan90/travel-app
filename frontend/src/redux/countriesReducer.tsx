@@ -6,9 +6,11 @@ const SET_ACTIVE_COUNTRY_DATA = 'SET_ACTIVE_COUNTRY_DATA';
 const SET_ACTIVE_COUNTRY_WEATHER = 'SET_ACTIVE_COUNTRY_WEATHER';
 const TOOGLE_IS_LOADING = 'TOOGLE_IS_LOADING';
 const TOOGLE_IS_WEATHER_LOADING = 'TOOGLE_IS_WEATHER_LOADING';
+const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE';
 
 const initialState = {
   countries: [],
+  filteredCountries: [],
   activeCountryId: '',
   activeCountryData: {
     capital: '',
@@ -21,6 +23,7 @@ const initialState = {
   isLoading: true,
   weather: null,
   isWeatherLoading: true,
+  searchValue: '',
 };
 
 const countriesReducer = (state = initialState, action: any) => {
@@ -30,30 +33,48 @@ const countriesReducer = (state = initialState, action: any) => {
         ...state,
         countries: [...action.countries],
       };
+
     case SET_COUNTRY_ID:
       return {
         ...state,
         activeCountryId: action.id,
       };
+
     case SET_ACTIVE_COUNTRY_DATA:
       return {
         ...state,
         activeCountryData: action.data,
       };
+
     case SET_ACTIVE_COUNTRY_WEATHER:
       return {
         ...state,
         weather: action.data,
       };
+
     case TOOGLE_IS_LOADING:
       return {
         ...state,
         isLoading: action.isLoading,
       };
+
     case TOOGLE_IS_WEATHER_LOADING:
       return {
         ...state,
         isWeatherLoading: action.isWeatherLoading,
+      };
+
+    case SET_SEARCH_VALUE:
+      return {
+        ...state,
+        searchValue: action.searchValue,
+        filteredCountries: [
+          ...state.countries.filter(
+            (country: Country) =>
+              country.name.toLowerCase().includes(action.searchValue.toLowerCase()) ||
+              country.capital.toLowerCase().includes(action.searchValue.toLowerCase()),
+          ),
+        ],
       };
 
     default:
@@ -88,16 +109,25 @@ export const setActiveCountryWeather = (data: any) => {
     data,
   };
 };
+
 export const toogleIsLoading = (isLoading: boolean) => {
   return {
     type: TOOGLE_IS_LOADING,
     isLoading,
   };
 };
+
 export const toogleIsWeatherLoading = (isWeatherLoading: boolean) => {
   return {
     type: TOOGLE_IS_WEATHER_LOADING,
     isWeatherLoading,
+  };
+};
+
+export const onSearch = (searchValue: string) => {
+  return {
+    type: SET_SEARCH_VALUE,
+    searchValue,
   };
 };
 

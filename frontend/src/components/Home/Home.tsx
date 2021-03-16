@@ -15,10 +15,10 @@ import Preloader from '../Preloader/Preloader';
 import { setCountryId } from '../../redux/countriesReducer';
 
 const Home = ({
-  countries,
+  filteredCountries,
   isLoading,
 }: {
-  countries: Country[];
+  filteredCountries: Country[];
   isLoading: boolean;
 }): JSX.Element => {
   const classes = homeStyles();
@@ -35,7 +35,7 @@ const Home = ({
         <Preloader />
       ) : (
         <ul className={classes.countryList}>
-          {countries.map(({ _id, capital, name, img, info }: Country) => {
+          {filteredCountries.map(({ _id, capital, name, img, info }: Country) => {
             return (
               <Card className={classes.countryCard} key={_id}>
                 <NavLink to={`/country/${_id}`}>
@@ -90,6 +90,7 @@ const Home = ({
 const mapStateToProps = (state: any) => ({
   countries: state.countries.countries,
   isLoading: state.countries.isLoading,
+  filteredCountries: state.countries.filteredCountries,
 });
 
 export default connect(mapStateToProps)(Home);

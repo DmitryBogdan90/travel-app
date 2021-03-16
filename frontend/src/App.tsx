@@ -7,13 +7,14 @@ import Auth from './components/Auth/Auth';
 import CountryPage from './components/CountryPage/CountryPage';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
-import { setCountries, setCountryId, toogleIsLoading } from './redux/countriesReducer';
+import { setCountries, setCountryId, toogleIsLoading, onSearch } from './redux/countriesReducer';
 
 const App: React.FC = ({ pathname, ...props }: any) => {
   useEffect(() => {
     axios.get('/countries').then(({ data }) => {
       props.setCountries(data);
       props.toogleIsLoading(false);
+      props.onSearch('');
     });
   }, []);
 
@@ -31,4 +32,4 @@ const App: React.FC = ({ pathname, ...props }: any) => {
   );
 };
 
-export default connect(null, { setCountries, setCountryId, toogleIsLoading })(App);
+export default connect(null, { setCountries, setCountryId, toogleIsLoading, onSearch })(App);

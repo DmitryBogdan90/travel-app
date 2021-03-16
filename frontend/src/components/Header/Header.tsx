@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AppBar, IconButton, Toolbar } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 import LangSelect from './LangSelect/LangSelect';
 import LogInOutBtn from './LogInOutBtn/LogInOutBtn';
@@ -12,7 +12,7 @@ import { mobileMenuId } from '../../constants';
 import Search from './Search/Search';
 import { useStyles } from './useStyles';
 
-const Header = () => {
+const Header = ({ location }: any) => {
   const classes = useStyles();
   const [lang, setLang] = useState(window.navigator.language.slice(0, 2));
   const [isAuthorized] = useState(false);
@@ -51,7 +51,7 @@ const Header = () => {
         <Toolbar className={classes.headerInner}>
           <Logo />
           <div className={classes.tools}>
-            <Search />
+            {location.pathname === '/' && <Search />}
             <div className={classes.sectionDesktop}>
               <LangSelect lang={lang} handleLangChange={handleLangChange} />
               <LogInOutBtn isAuthorized={isAuthorized} />
@@ -79,4 +79,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

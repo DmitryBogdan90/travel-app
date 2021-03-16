@@ -24,6 +24,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       },
     },
     search: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -50,6 +53,17 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    clear: {
+      display: 'flex',
+      outline: 'none',
+      background: 'transparent',
+      border: 'none',
+      color: 'inherit',
+      '&:hover': {
+        cursor: 'pointer',
+        transform: 'scale(1.15)',
+      },
     },
     inputRoot: {
       color: 'inherit',
