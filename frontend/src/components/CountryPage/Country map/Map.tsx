@@ -31,9 +31,7 @@ export const Map = ({ map }: MapProps): JSX.Element => {
         />
         {createBorders()}
         <Marker position={map ? [map.lat, map.lng] : [51, -0.9]}>
-          <Popup>
-            Capital
-          </Popup>
+          <Popup>Capital</Popup>
         </Marker>
       </MapContainer>
     </div>
