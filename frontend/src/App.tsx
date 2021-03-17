@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import Auth from './components/Auth/Auth';
 import CountryPage from './components/CountryPage/CountryPage';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import { setCountries, setCountryId, toogleIsLoading, onSearch } from './redux/countriesReducer';
@@ -27,6 +28,7 @@ const App: React.FC = ({ pathname, ...props }: any) => {
           <Route path="/auth" component={Auth} />
           <Route path="/country/:id" component={CountryPage} />
         </Switch>
+        <Footer />
       </div>
     </BrowserRouter>
   );
