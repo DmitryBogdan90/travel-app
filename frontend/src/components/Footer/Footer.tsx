@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Grid, Link, Typography } from '@material-ui/core';
+import { AppBar, Link, Typography } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 import { useStyles } from './FooterStyles';
@@ -8,53 +8,53 @@ const Footer = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.footerBlock}>
       <AppBar position="static">
-        <Grid container className={classes.footerInner}>
-          <Grid className={classes.footerContent} container spacing={3}>
-            <Grid item xs>
-              <Typography className={classes.appYear}>2021</Typography>
-            </Grid>
-            <Grid className={classes.linkContent} container xs={8}>
-              <Grid>
+        <div className={classes.footerInner}>
+          <div className={classes.footerContent}>
+            <div className={classes.appYear}>
+              <Typography>2021</Typography>
+            </div>
+            <div className={classes.linkContent}>
+              <div>
                 {' '}
                 <GitHubIcon />
-              </Grid>
+              </div>
 
-              <Grid item className={classes.linkBox}>
+              <div className={classes.linkBox}>
                 <Link href="https://github.com/DmitryBogdan90" color="inherit">
                   <Typography>DmitryBogdan90</Typography>
                 </Link>
-              </Grid>
+              </div>
 
-              <Grid item className={classes.linkBox}>
+              <div className={classes.linkBox}>
                 <Link href="https://github.com/vzabavski" color="inherit">
                   <Typography> vzabavski</Typography>
                 </Link>
-              </Grid>
+              </div>
 
-              <Grid item className={classes.linkBox}>
+              <div className={classes.linkBox}>
                 <Link href="https://github.com/zhenya-band" color="inherit">
                   <Typography> zhenya-band</Typography>
                 </Link>
-              </Grid>
-              <Grid item className={classes.linkBox}>
+              </div>
+              <div className={classes.linkBox}>
                 <Link href="https://github.com/Gypsynkov" color="inherit">
                   <Typography> Gypsynkov</Typography>
                 </Link>
-              </Grid>
-            </Grid>
-            <Grid item xs>
+              </div>
+            </div>
+            <div className={classes.rsLogo}>
               <Link href="https://rs.school/js/">
                 <img
-                  className={classes.rsLogo}
+                  className={classes.logoImg}
                   src="https://rs.school/images/rs_school_js.svg"
                   alt="rsschool logo"
                 />
               </Link>
-            </Grid>
-          </Grid>
-        </Grid>
+            </div>
+          </div>
+        </div>
       </AppBar>
     </div>
   );
