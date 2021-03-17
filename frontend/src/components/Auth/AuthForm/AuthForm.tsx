@@ -36,7 +36,7 @@ const AuthForm = ({ isSignUp }: any) => {
 
     res = await axios.post('/users/login', data);
     localStorage.setItem('token', res.data.token);
-    history.push('/countries');
+    history.push('/');
     return res.data;
   };
 

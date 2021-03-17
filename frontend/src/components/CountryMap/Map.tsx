@@ -2,7 +2,7 @@ import React from 'react';
 import { GeoJSON, MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import * as Geo from './custom.geo.json';
 
-import { homeStyles } from '../../Home/HomeStyles';
+import { homeStyles } from '../Home/HomeStyles';
 
 interface CoordinatesProps {
   lat: number;

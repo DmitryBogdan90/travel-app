@@ -14,7 +14,7 @@ import { homeStyles } from '../Home/HomeStyles';
 import { setActiveCountryData, setCountryId, toogleIsLoading } from '../../redux/countriesReducer';
 import Weather from '../Weather/Weather';
 import Preloader from '../Preloader/Preloader';
-import { Map } from './Country map/Map';
+import { Map } from '../CountryMap/Map';
 
 const CountryPage = ({
   activeCountryData,
@@ -92,48 +92,6 @@ const CountryPage = ({
           </div>
         </>
       )}
-      <div className={classes.countryName}>{countryName}</div>
-      <div className={classes.capitalName}>{capital}</div>
-      <div className={classes.countryInfo}>{info}</div>
-      <div className={classes.sightList}>
-        {sights.map(({ name, description, img: sightImg }: Sight) => (
-          <Card className={classes.sightCard} key={name}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt="Contemplative Reptile"
-                height="140"
-                image={sightImg}
-                title="Contemplative Reptile"
-              />
-              <CardContent>
-                <Typography
-                  className={classes.sightCardTitle}
-                  gutterBottom
-                  variant="h4"
-                  component="h2">
-                  {name}
-                </Typography>
-                <Typography
-                  className={classes.sightCardInfo}
-                  variant="body2"
-                  color="textSecondary"
-                  component="p">
-                  {description}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Go
-              </Button>
-              <Button size="small" color="primary">
-                Like
-              </Button>
-            </CardActions>
-          </Card>
-        ))}
-      </div>
       <Map map={map} />
     </div>
   );
