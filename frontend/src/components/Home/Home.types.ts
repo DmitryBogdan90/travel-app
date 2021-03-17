@@ -16,7 +16,6 @@ export interface Country {
   name: string;
   info: string;
   img: string;
-  map: any;
   video: any;
   _id: string;
   sights: Sight[];

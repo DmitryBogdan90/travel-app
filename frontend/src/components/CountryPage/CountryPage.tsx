@@ -15,7 +15,7 @@ import { homeStyles } from '../Home/HomeStyles';
 import { setActiveCountryData, setCountryId, toogleIsLoading } from '../../redux/countriesReducer';
 import Weather from '../Weather/Weather';
 import Preloader from '../Preloader/Preloader';
-import { Map } from '../CountryMap/Map';
+// import { Map } from '../CountryMap/Map';
 import Video from '../Video/Video';
 
 const CountryPage = ({
@@ -98,7 +98,7 @@ const CountryPage = ({
           <Video src={video} />
         </>
       )}
-      <Map map={map} />
+      {/* <Map map={map} /> */}
     </div>
   );
 };
