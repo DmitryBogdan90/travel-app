@@ -7,10 +7,15 @@ type LogInOutBtnProps = {
 };
 
 const LogInOutBtn = ({ isAuthorized }: LogInOutBtnProps) => {
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+  };
   return (
     <>
       {isAuthorized ? (
-        <Button color="inherit">Log out</Button>
+        <Button color="inherit" onClick={handleLogout}>
+          Log out
+        </Button>
       ) : (
         <NavLink to="/auth">
           <Button color="inherit">Login</Button>

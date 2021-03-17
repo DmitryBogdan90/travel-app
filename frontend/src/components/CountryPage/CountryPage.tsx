@@ -9,12 +9,14 @@ import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
+import ExchangeRates from '../ExchangeRates/ExchangeRates';
 import { Country, Sight } from '../Home/Home.types';
 import { homeStyles } from '../Home/HomeStyles';
 import { setActiveCountryData, setCountryId, toogleIsLoading } from '../../redux/countriesReducer';
 import Weather from '../Weather/Weather';
 import Preloader from '../Preloader/Preloader';
 import { Map } from '../CountryMap/Map';
+import Video from '../Video/Video';
 
 const CountryPage = ({
   activeCountryData,
@@ -28,7 +30,7 @@ const CountryPage = ({
   toogleIsLoading: any;
 }): JSX.Element => {
   const { pathname } = location;
-  const { name: countryName, capital, info, sights, map } = activeCountryData;
+  const { name: countryName, capital, info, sights, map, video } = activeCountryData;
   const dispatch = useDispatch();
   const classes = homeStyles();
 
@@ -47,7 +49,6 @@ const CountryPage = ({
         <Preloader />
       ) : (
         <>
-          <Weather capital={capital} />
           <div className={classes.countryName}>{countryName}</div>
           <div className={classes.capitalName}>{capital}</div>
           <div className={classes.countryInfo}>{info}</div>
@@ -90,6 +91,11 @@ const CountryPage = ({
               </Card>
             ))}
           </div>
+          <div className={classes.widgets}>
+            <Weather map={map} />
+            <ExchangeRates />
+          </div>
+          <Video src={video} />
         </>
       )}
       <Map map={map} />

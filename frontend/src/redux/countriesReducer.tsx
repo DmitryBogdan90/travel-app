@@ -7,6 +7,8 @@ const SET_ACTIVE_COUNTRY_WEATHER = 'SET_ACTIVE_COUNTRY_WEATHER';
 const TOOGLE_IS_LOADING = 'TOOGLE_IS_LOADING';
 const TOOGLE_IS_WEATHER_LOADING = 'TOOGLE_IS_WEATHER_LOADING';
 const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE';
+const SET_EXCHANGE_USD = 'SET_EXCHANGE_USD';
+const SET_EXCHANGE_EUR = 'SET_EXCHANGE_EUR';
 
 const initialState = {
   countries: [],
@@ -19,7 +21,10 @@ const initialState = {
     img: '',
     _id: '',
     sights: [],
+    map: [],
   },
+  exchangeRateUSD: null,
+  exchangeRateEUR: null,
   isLoading: true,
   weather: null,
   isWeatherLoading: true,
@@ -77,6 +82,18 @@ const countriesReducer = (state = initialState, action: any) => {
         ],
       };
 
+    case SET_EXCHANGE_USD:
+      return {
+        ...state,
+        exchangeRateUSD: [action.exchangeRateUSD, action.countryCurrency],
+      };
+
+    case SET_EXCHANGE_EUR:
+      return {
+        ...state,
+        exchangeRateEUR: [action.exchangeRateEUR, action.countryCurrency],
+      };
+
     default:
       return state;
   }
@@ -128,6 +145,21 @@ export const onSearch = (searchValue: string) => {
   return {
     type: SET_SEARCH_VALUE,
     searchValue,
+  };
+};
+
+export const setExchangeUSD = (exchangeRateUSD: any, countryCurrency: any) => {
+  return {
+    type: SET_EXCHANGE_USD,
+    exchangeRateUSD,
+    countryCurrency,
+  };
+};
+export const setExchangeEUR = (exchangeRateEUR: any, countryCurrency: any) => {
+  return {
+    type: SET_EXCHANGE_EUR,
+    exchangeRateEUR,
+    countryCurrency,
   };
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppBar, IconButton, Toolbar } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { NavLink, withRouter } from 'react-router-dom';
@@ -15,7 +15,7 @@ import { useStyles } from './useStyles';
 const Header = ({ location }: any) => {
   const classes = useStyles();
   const [lang, setLang] = useState(window.navigator.language.slice(0, 2));
-  const [isAuthorized] = useState(false);
+  const [isAuthorized, setIsAuthorized] = useState(false);
   const [mobileMenuAnchorEl, setMobileMenuAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleLangChange = (event: React.ChangeEvent<{ value: unknown }>) => {
@@ -25,6 +25,15 @@ const Header = ({ location }: any) => {
   const handleMobileMenu = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMenuAnchorEl(mobileMenuAnchorEl ? null : event.currentTarget);
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsAuthorized(true);
+    } else {
+      setIsAuthorized(false);
+    }
+  }, []);
 
   const menuItems: Array<MenuItemsType> = [
     {

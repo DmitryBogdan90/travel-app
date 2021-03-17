@@ -23,6 +23,8 @@ const schema = new Schema({
       lat: 51,
       lng: -0.91,
     },
+  video: {
+    type: String,
   },
   sights: {
     type: [

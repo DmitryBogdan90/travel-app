@@ -9,7 +9,7 @@ router.post(
   '/registration',
   [
     check('username', 'Username cannot be empty').notEmpty(),
-    check('password').isLength({ min: 4, max: 10 }),
+    check('password').isLength({ min: 4, max: 20 }),
   ],
   registration,
 );

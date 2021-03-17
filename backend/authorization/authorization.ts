@@ -43,7 +43,7 @@ export const login = async (req: Request, res: Response) => {
       res.status(400).json({ message: 'Invalid password' });
     }
     const token = generateAccessToken(user.id);
-    return res.json({ token });
+    return res.json({ token, user });
   } catch (e) {
     res.status(400).json({ message: 'Login error' });
   }
