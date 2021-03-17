@@ -51,7 +51,7 @@
     "prettier": "prettier src/**/*.{ts,tsx}",
     "prettier:fix": "prettier --write src/**/*.{ts,tsx}",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d frontend/build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
