@@ -24,6 +24,9 @@ const schema = new Schema({
       lng: -0.91,
     },
   },
+  video: {
+    type: String,
+  },
   sights: {
     type: [
       {

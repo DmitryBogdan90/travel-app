@@ -22,7 +22,7 @@ const App: React.FC = ({ pathname, ...props }: any) => {
   return (
     <BrowserRouter>
       <Header />
-      <div className="container">
+      <div className="container" style={{ paddingBottom: '200px' }}>
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/auth" component={Auth} />

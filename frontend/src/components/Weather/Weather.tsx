@@ -8,9 +8,9 @@ import { setActiveCountryWeather, toogleIsWeatherLoading } from '../../redux/cou
 import { WEATHER_API_KEY } from '../../constants';
 import { weatherStyles } from './WeatherStyles';
 
-const Weather = ({ capital, weather, isWeatherLoading, ...props }: any) => {
+const Weather = ({ capital, weather, isWeatherLoading, map, ...props }: any) => {
   const classes = weatherStyles();
-  const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${capital}&units=metric&appid=${WEATHER_API_KEY}`;
+  const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${map.lat}&lon=${map.lng}&units=metric&appid=${WEATHER_API_KEY}`;
   const imgURL = `owf owf-${weather?.weather[0].id} owf-5x`;
   const [date, setDate] = useState<Date>(new Date());
   const myDate = new Date();
@@ -20,7 +20,7 @@ const Weather = ({ capital, weather, isWeatherLoading, ...props }: any) => {
       props.setActiveCountryWeather(data);
       props.toogleIsWeatherLoading(false);
     });
-  }, [capital]);
+  }, []);
 
   useEffect(() => {
     const tick = setInterval(() => {
@@ -33,7 +33,7 @@ const Weather = ({ capital, weather, isWeatherLoading, ...props }: any) => {
   });
 
   return (
-    <>
+    <div className={classes.weather}>
       {isWeatherLoading ? (
         <CircularProgress size={35} />
       ) : (
@@ -45,7 +45,7 @@ const Weather = ({ capital, weather, isWeatherLoading, ...props }: any) => {
           <div>{weather?.weather[0].description}</div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

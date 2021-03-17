@@ -27,6 +27,7 @@ export const homeStyles = makeStyles((theme) =>
     },
     countryCardInfo: {
       overflow: 'hidden',
+      height: '142px',
     },
     countryPage: {
       display: 'flex',
@@ -37,6 +38,7 @@ export const homeStyles = makeStyles((theme) =>
     },
     countryName: {
       fontSize: theme.spacing(5),
+      marginTop: '15px',
       [theme.breakpoints.down('sm')]: {
         fontSize: theme.spacing(3),
       },
@@ -49,6 +51,7 @@ export const homeStyles = makeStyles((theme) =>
     },
     countryInfo: {
       overflow: 'hidden',
+      padding: '20px 20px',
     },
     sightList: {
       display: 'flex',
@@ -77,7 +80,16 @@ export const homeStyles = makeStyles((theme) =>
       overflow: 'hidden',
       fontSize: theme.spacing(2),
       [theme.breakpoints.down('sm')]: {
-        fontSize: theme.spacing(1),
+        fontSize: '14px',
+      },
+    },
+    widgets: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: '20px',
+      [theme.breakpoints.down('sm')]: {
+        flexDirection: 'column',
       },
     },
     mapWrapper: {
