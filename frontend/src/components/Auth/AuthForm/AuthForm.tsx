@@ -28,13 +28,13 @@ const AuthForm = ({ isSignUp }: any) => {
   const onSubmit = async (data: object) => {
     let res;
     if (isSignUp) {
-      res = await axios.post('/users/registration', {
+      res = await axios.post('https://travel-app-prod.herokuapp.com/users/registration', {
         ...data,
         avatar,
       });
     }
 
-    res = await axios.post('/users/login', data);
+    res = await axios.post('https://travel-app-prod.herokuapp.com/users/login', data);
     localStorage.setItem('token', res.data.token);
     history.push('/');
     return res.data;
@@ -57,7 +57,7 @@ const AuthForm = ({ isSignUp }: any) => {
       formData.append(String(i), file);
     });
 
-    const res = await axios.post('/avatar/create', formData);
+    const res = await axios.post('https://travel-app-prod.herokuapp.com/avatar/create', formData);
     setLoadingStatus('Uploaded');
     setAvatar(res.data.url);
   };

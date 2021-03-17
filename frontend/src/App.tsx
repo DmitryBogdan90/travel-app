@@ -12,7 +12,7 @@ import { setCountries, setCountryId, toogleIsLoading, onSearch } from './redux/c
 
 const App: React.FC = ({ pathname, ...props }: any) => {
   useEffect(() => {
-    axios.get('/countries').then(({ data }) => {
+    axios.get('https://travel-app-prod.herokuapp.com/countries').then(({ data }) => {
       props.setCountries(data);
       props.toogleIsLoading(false);
       props.onSearch('');
