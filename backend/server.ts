@@ -12,6 +12,9 @@ app.use(formData.parse());
 app.use('/countries', require('./routes/app.routes'));
 app.use('/users', require('./routes/user.routes'));
 app.use('/avatar', require('./routes/avatar.routes'));
+app.get('/', (req: any, res: any) => {
+  res.send('Travel app backend')
+});
 
 const start = async () => {
   try {

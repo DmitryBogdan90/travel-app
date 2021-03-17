@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "nodemon": "nodemon server.ts",
     "lint": "eslint ./ --ext .js,.jsx,.ts,.tsx",
+    "start": "ts-node server.ts",
     "fix": "eslint ./ --ext .js,.jsx,.ts,.tsx  --fix",
     "format": "prettier --write \"{,!(node_modules)/**/}*.ts\""
   },
@@ -29,6 +30,7 @@
     "express-validator": "^6.10.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.15",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
   },
   "devDependencies": {
@@ -45,7 +47,6 @@
     "eslint-plugin-react": "^7.22.0",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
-    "ts-node": "^9.1.1",
     "tslint": "^5.12.1"
   }
 }
