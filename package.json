@@ -16,7 +16,7 @@
     "test:frontend": "cd frontend && npm run test",
     "lint:frontend": "cd frontend && npm run lint",
     "fix:frontend": "cd frontend && npm run fix && npm run prettier:fix",
-    "deploy:frontend": "cd frontend && run start deploy",
+    "deploy:frontend": "cd frontend && npm run deploy",
     "start:backend": "cd backend && npm run nodemon",
     "test:backend": "cd backend && npm run test",
     "lint:backend": "cd backend && npm run lint",
