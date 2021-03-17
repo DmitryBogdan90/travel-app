@@ -80,5 +80,12 @@ export const homeStyles = makeStyles((theme) =>
         fontSize: theme.spacing(1),
       },
     },
+    mapWrapper: {
+      width: '50vw',
+      height: '30vw',
+      [theme.breakpoints.down('sm')]: {
+        height: '50vw',
+      },
+    },
   }),
 );

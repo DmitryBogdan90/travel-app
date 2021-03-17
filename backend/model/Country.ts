@@ -17,6 +17,13 @@ const schema = new Schema({
     type: String,
     default: '',
   },
+  map: {
+    type: Object,
+    default: {
+      lat: 51,
+      lng: -0.91,
+    },
+  },
   sights: {
     type: [
       {

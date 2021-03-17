@@ -14,6 +14,7 @@ import { homeStyles } from '../Home/HomeStyles';
 import { setActiveCountryData, setCountryId, toogleIsLoading } from '../../redux/countriesReducer';
 import Weather from '../Weather/Weather';
 import Preloader from '../Preloader/Preloader';
+import { Map } from '../CountryMap/Map';
 
 const CountryPage = ({
   activeCountryData,
@@ -27,7 +28,7 @@ const CountryPage = ({
   toogleIsLoading: any;
 }): JSX.Element => {
   const { pathname } = location;
-  const { name: countryName, capital, info, sights } = activeCountryData;
+  const { name: countryName, capital, info, sights, map } = activeCountryData;
   const dispatch = useDispatch();
   const classes = homeStyles();
 
@@ -91,6 +92,7 @@ const CountryPage = ({
           </div>
         </>
       )}
+      <Map map={map} />
     </div>
   );
 };
