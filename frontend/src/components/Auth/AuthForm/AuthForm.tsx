@@ -36,7 +36,7 @@ const AuthForm = ({ isSignUp }: any) => {
 
     res = await axios.post('https://travel-app-prod.herokuapp.com/users/login', data);
     localStorage.setItem('token', res.data.token);
-    history.push('/');
+    history.push('/travel-app');
     return res.data;
   };
 
