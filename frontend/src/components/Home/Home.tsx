@@ -69,7 +69,9 @@ const Home = ({
                   </CardActionArea>
                 </NavLink>
                 <CardActions>
-                  <NavLink to={`https://travel-app-prod.herokuapp.com/country/${_id}`} onClick={() => handleChooseCountry(_id)}>
+                  <NavLink
+                    to={`https://travel-app-prod.herokuapp.com/country/${_id}`}
+                    onClick={() => handleChooseCountry(_id)}>
                     <Button size="small" color="primary">
                       Go
                     </Button>

@@ -36,11 +36,13 @@ const CountryPage = ({
 
   useEffect(() => {
     props.toogleIsLoading(true);
-    axios.get(`https://travel-app-prod.herokuapp.com/countries/${pathname.slice(9)}`).then(({ data }) => {
-      dispatch(setCountryId(pathname?.slice(9)));
-      dispatch(setActiveCountryData(data));
-      props.toogleIsLoading(false);
-    });
+    axios
+      .get(`https://travel-app-prod.herokuapp.com/countries/${pathname.slice(9)}`)
+      .then(({ data }) => {
+        dispatch(setCountryId(pathname?.slice(9)));
+        dispatch(setActiveCountryData(data));
+        props.toogleIsLoading(false);
+      });
   }, []);
 
   return (
