@@ -86,11 +86,9 @@ export const homeStyles = makeStyles((theme) =>
     widgets: {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'space-between',
+      justifyContent: 'center',
       marginBottom: '20px',
-      [theme.breakpoints.down('sm')]: {
-        flexDirection: 'column',
-      },
+      flexDirection: 'column',
     },
     mapWrapper: {
       zIndex: 0,
