@@ -93,6 +93,7 @@ export const homeStyles = makeStyles((theme) =>
       },
     },
     mapWrapper: {
+      zIndex: 0,
       width: '50vw',
       height: '30vw',
       [theme.breakpoints.down('sm')]: {
