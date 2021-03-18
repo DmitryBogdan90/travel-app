@@ -69,9 +69,7 @@ const Home = ({
                   </CardActionArea>
                 </NavLink>
                 <CardActions>
-                  <NavLink
-                    to={`/country/${_id}`}
-                    onClick={() => handleChooseCountry(_id)}>
+                  <NavLink to={`/country/${_id}`} onClick={() => handleChooseCountry(_id)}>
                     <Button size="small" color="primary">
                       Go
                     </Button>
