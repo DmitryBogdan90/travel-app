@@ -24,13 +24,14 @@ const Map = ({ map, countryName }: MapProps): JSX.Element => {
   useEffect(() => {
     if (countryName) {
       const iso3Name = getCountryISO3(countryName);
+      // @ts-ignore
       const countryData = Geo.features.find(
         (country: any) => country.properties.ISO_A3 === iso3Name,
       );
       if (countryData) {
         // @ts-ignore
         const reversedCoordinates = countryData.geometry.coordinates.map((row) =>
-          row.map((item) => item.map((i) => [i[1], i[0]])),
+          row.map((item: any) => item.map((i: any) => [i[1], i[0]])),
         );
         setPolygonData(reversedCoordinates);
       }
