@@ -42,10 +42,10 @@ const Home = ({
                   <CardActionArea onClick={() => handleChooseCountry(_id)}>
                     <CardMedia
                       component="img"
-                      alt="Contemplative Reptile"
+                      alt="image not found"
                       height="140"
                       image={img}
-                      title="Contemplative Reptile"
+                      title="image"
                     />
                     <CardContent>
                       <Typography

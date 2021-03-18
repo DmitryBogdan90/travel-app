@@ -60,10 +60,10 @@ const CountryPage = ({
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    alt="Contemplative Reptile"
+                    alt="image not found"
                     height="140"
                     image={sightImg}
-                    title="Contemplative Reptile"
+                    title="foto"
                   />
                   <CardContent>
                     <Typography
