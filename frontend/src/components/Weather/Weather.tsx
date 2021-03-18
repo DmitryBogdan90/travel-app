@@ -10,7 +10,7 @@ import { weatherStyles } from './WeatherStyles';
 
 const Weather = ({ capital, weather, isWeatherLoading, map, ...props }: any) => {
   const classes = weatherStyles();
-  const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${map.lat}&lon=${map.lng}&units=metric&appid=${WEATHER_API_KEY}`;
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${map.lat}&lon=${map.lng}&units=metric&appid=${WEATHER_API_KEY}`;
   const imgURL = `owf owf-${weather?.weather[0].id} owf-5x`;
   const [date, setDate] = useState<Date>(new Date());
   const myDate = new Date();

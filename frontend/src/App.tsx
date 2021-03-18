@@ -24,7 +24,7 @@ const App: React.FC = ({ pathname, ...props }: any) => {
       <Header />
       <div className="container" style={{ paddingBottom: '200px' }}>
         <Switch>
-          <Route path="/" component={Home} exact />
+          <Route path="/travel-app" component={Home} exact />
           <Route path="/auth" component={Auth} />
           <Route path="/country/:id" component={CountryPage} />
         </Switch>

@@ -38,7 +38,7 @@ const Home = ({
           {filteredCountries.map(({ _id, capital, name, img, info }: Country) => {
             return (
               <Card className={classes.countryCard} key={_id}>
-                <NavLink to={`https://travel-app-prod.herokuapp.com/country/${_id}`}>
+                <NavLink to={`/country/${_id}`}>
                   <CardActionArea onClick={() => handleChooseCountry(_id)}>
                     <CardMedia
                       component="img"
@@ -70,7 +70,7 @@ const Home = ({
                 </NavLink>
                 <CardActions>
                   <NavLink
-                    to={`https://travel-app-prod.herokuapp.com/country/${_id}`}
+                    to={`/country/${_id}`}
                     onClick={() => handleChooseCountry(_id)}>
                     <Button size="small" color="primary">
                       Go

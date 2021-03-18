@@ -8,7 +8,7 @@ const Logo = () => {
   const classes = useStyles();
 
   return (
-    <NavLink to="/">
+    <NavLink to="/travel-app">
       <Typography className={classes.title} variant="h6" noWrap>
         Travel app
       </Typography>

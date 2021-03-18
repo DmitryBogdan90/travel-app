@@ -38,12 +38,12 @@ const Header = ({ location }: any) => {
   const menuItems: Array<MenuItemsType> = [
     {
       id: 1,
-      content: <NavLink to="/">Home</NavLink>,
+      content: <NavLink to="/travel-app">Home</NavLink>,
     },
     {
       id: 2,
       content: isAuthorized ? (
-        <NavLink to="/">Log out</NavLink>
+        <NavLink to="/travel-app">Log out</NavLink>
       ) : (
         <NavLink to="/auth">Log in</NavLink>
       ),
