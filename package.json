@@ -1,0 +1,37 @@
+{
+  "name": "travel-app",
+  "version": "1.0.0",
+  "description": "Rs School Task",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm run install:backend && npm run install:frontend",
+    "install:backend": "cd backend && yarn install",
+    "install:frontend": "cd frontend && yarn install",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "fix": "npm run fix:frontend && npm run fix:backend",
+    "test": "concurrently \"npm run test:frontend\" \"npm run test:backend\"",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "start:frontend": "cd frontend && npm run start",
+    "build:frontend": "cd frontend && npm run build",
+    "test:frontend": "cd frontend && npm run test",
+    "lint:frontend": "cd frontend && npm run lint",
+    "fix:frontend": "cd frontend && npm run fix && npm run prettier:fix",
+    "deploy:frontend": "cd frontend && yarn deploy",
+    "start:backend": "cd backend && npm run nodemon",
+    "test:backend": "cd backend && npm run test",
+    "lint:backend": "cd backend && npm run lint",
+    "fix:backend": "cd backend && npm run lint:fix && npm run format"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitryBogdan90/travel-app.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/DmitryBogdan90/travel-app/issues"
+  },
+  "homepage": "https://github.com/DmitryBogdan90/travel-app#readme",
+  "dependencies": {
+    "concurrently": "^6.0.0"
+  }
+}
